@@ -24,7 +24,8 @@ export default function FirstPage() {
     }
     const handleSave = async(e:any) =>{
         e.preventDefault()
-        const response = await fetch('http://localhost:4000/blogs',{
+        const server = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL
+        const response = await fetch(`${server}/blogs`,{
             method:'POST',
             body:JSON.stringify({blog:value}),
             headers:{

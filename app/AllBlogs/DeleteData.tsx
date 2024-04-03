@@ -1,12 +1,13 @@
 
 export default  function DeleteData({id}:any) {
+  const server = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL
+  console.log(server)
   const deleteData = async() =>{
-    const response = await fetch(`http://localhost:4000/blogs/${id}`,{
+    const response = await fetch(`${server}/blogs/${id}`,{
         method:'DELETE'
     })
     if(!response.ok){
-        console.log('error to delete the data')
-        console.log(id)
+        console.log('error to delete the data',)
     }else{
       console.log('delete successfully')
     }
