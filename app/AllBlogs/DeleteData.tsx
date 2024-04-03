@@ -1,7 +1,6 @@
 
 export default  function DeleteData({id}:any) {
   const server = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL
-  console.log(server)
   const deleteData = async() =>{
     const response = await fetch(`${server}/blogs/${id}`,{
         method:'DELETE'
