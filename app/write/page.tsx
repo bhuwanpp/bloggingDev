@@ -1,10 +1,12 @@
 'use client'
+import { useRouter } from "next/navigation"
 import { useRef, useState } from "react"
 
 export default function FirstPage() {
     const [saveShow ,setSaveShow] = useState<boolean>(false)
     const [value,setValue]  = useState<string>('')
     const inputRef:any = useRef<HTMLInputElement>(null)
+    const router = useRouter()
     const handleChange = (event:any)=>{
          const val = event.target.value
          console.log(val)
@@ -32,15 +34,19 @@ export default function FirstPage() {
                 'Content-Type':'application/json'
             }
         })
+        if(response.ok){
+            setValue('')
+            router.push('/yourBlogs')
+        }else{
+            console.log('error to posting data')
+        }
         const result = response.json()
-        console.log(result)
-        setValue('')
     }
 
   return (
     <div>
-        <div className="button text-right">
-        <button onClick={handleButton} className=" bg-blue-200 text-xl rounded-md px-2 py-1">writer </button>
+        <div className="button text-center py-10">
+        <button onClick={handleButton} className=" bg-blue-200 text-xl rounded-md px-2 py-1"> Write</button>
         </div>
         <div className="input px-20 py-10">
         <textarea onChange={handleChange}  value={value} ref={inputRef} className=" bg-gray-100 focus:bg-gray-150 focus:border
@@ -49,7 +55,8 @@ export default function FirstPage() {
         </div>
         <div className="button text-center ">
             {saveShow&&
-        <button onClick={handleSave} className=" bg-blue-200 text-xl rounded-md px-2 py-1">save </button>
+        <button onClick={handleSave} className=" bg-blue-200 text-xl rounded-md px-2 py-1"> Save
+             </button>
             }
         </div>
     </div>

@@ -1,3 +1,4 @@
+import { useBlogStore } from "../store/hookStore"
 
 export default  function DeleteData({id}:any) {
   const server = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL
@@ -14,8 +15,10 @@ export default  function DeleteData({id}:any) {
     
   return (
     <>
-    <div className=" px-2 py-1 bg-red-200 mb-1 w-20 text-center rounded-md">
-        <button onClick={deleteData}>Delete </button>
+    <div >
+        <button className="px-3 text-base py-1 bg-red-200 hover:bg-red-300 mb-1 
+         text-center rounded-md" onClick={deleteData}>Delete </button>
+        
     </div>  
     </>
   )
