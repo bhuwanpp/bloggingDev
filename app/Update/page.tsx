@@ -1,9 +1,18 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { redirect, useParams, useRouter, useSearchParams } from "next/navigation"
 import GetData from "../yourBlogs/GetData"
-export default function Update() {
+export  default function Update(){
+  return(
+    <Suspense fallback={<div>Loading...</div>}>
+      <UpdateContent/>
+    </Suspense>
+  )
+
+}
+
+function UpdateContent() {
   const [updateBlog,setUpdateBlog] = useState('')
   const params = useSearchParams()
     const id = params.get('id')
@@ -38,7 +47,7 @@ export default function Update() {
   }
   return (
     <div className="pb-4 pt-2 px-10">
-        <p>this is update</p>
+        <p className="text-md text-lime-900">You and change or update</p>
         <br />
         <textarea value={updateBlog} onChange={(e) => setUpdateBlog(e.target.value)} 
          className="border border-black h-32 w-96 outline-none p-2" ></textarea>
