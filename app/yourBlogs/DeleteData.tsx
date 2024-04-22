@@ -1,4 +1,3 @@
-import { useBlogStore } from "../store/hookStore"
 
 export default  function DeleteData({id}:any) {
   const server = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL
@@ -8,6 +7,7 @@ export default  function DeleteData({id}:any) {
     })
     if(!response.ok){
         console.log('error to delete the data',)
+        console.log(id)
     }else{
       console.log('delete successfully')
     }

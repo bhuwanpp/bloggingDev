@@ -4,9 +4,8 @@ import { useEffect } from "react"
 import GetData from "./GetData"
 import { useBlogStore } from "../store/hookStore"
 
-
 export default function FirstShow() {
-    const {blogs,setBlogs}:any =useBlogStore()
+    const {blogs,setBlogs}:any=useBlogStore()
     useEffect(() =>{
         const fetchData = async () =>{
             const data =  await GetData()
@@ -22,7 +21,7 @@ export default function FirstShow() {
 
         {blogs&& blogs.slice().reverse().map((blog:any,index:any) =>(
             <div key={index}  className="">
-                <p className="bg-blue-100 text-xl mb-2 rounded-md px-1 py-2 ">{blog.blog}</p>
+                <p className="bg-blue-100 text-xl mb-2 rounded-md px-1 py-2 ">{blog.Blog}</p>
             </div>
         ))  }
     </div>

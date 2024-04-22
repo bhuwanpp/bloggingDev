@@ -1,7 +1,7 @@
 'use client'
 
 import { Suspense, useEffect, useState } from "react"
-import { redirect, useParams, useRouter, useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import GetData from "../yourBlogs/GetData"
 export  default function Update(){
   return(
@@ -9,7 +9,6 @@ export  default function Update(){
       <UpdateContent/>
     </Suspense>
   )
-
 }
 
 function UpdateContent() {
@@ -20,8 +19,8 @@ function UpdateContent() {
         const fetchData = async () =>{          
             const data =  await GetData()
             data.forEach((blog:any) =>{
-              if(blog.id.toString() === id){
-              setUpdateBlog(blog.blog)
+              if(blog.Id.toString() === id){
+              setUpdateBlog(blog.Blog)
               }
             })
         }   
@@ -42,7 +41,7 @@ function UpdateContent() {
         console.log('check',server,id)
     }if(response.ok){
       console.log('update successfully')
-      router.push('/AllBlogs')
+      router.push('/yourBlogs')
     }
   }
   return (

@@ -9,7 +9,7 @@ export default function FirstPage() {
     const router = useRouter()
     const handleChange = (event:any)=>{
          const val = event.target.value
-         console.log(val)
+         
          setValue(val)
          if (val.length>0){
             setSaveShow(true)
@@ -29,7 +29,7 @@ export default function FirstPage() {
         const server = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL
         const response = await fetch(`${server}/blogs`,{
             method:'POST',
-            body:JSON.stringify({blog:value}),
+            body:JSON.stringify({Blog:value}),
             headers:{
                 'Content-Type':'application/json'
             }

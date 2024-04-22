@@ -7,6 +7,7 @@ import FirstShow from "./yourBlogs/FirstShow";
 export default function Home() {
   return (
     <main className="px-5 py-2">
+        <p className="pb-5 text-lime-900 text-xl">This is blogging for dev</p>
       <div className="nav flex gap-10 py-2">
       <Link href="/yourBlogs">
         <p className="bg-blue-200 px-2 py-1 rounded-md text-xl">
